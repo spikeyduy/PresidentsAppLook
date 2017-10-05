@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">Presidents App</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="seventeenCent">17th Century</string>
+    <string name="eighteenCent">18th Century</string>
+    <string name="nineteenCent">19th Century</string>
+    <string name="twentyCent">20th Century</string>
+
+    <string name="seventeenVal">seventeen</string>
+
+    <string-array name="centuries">
+        <item>@string/seventeenCent</item>
+        <item>@string/eighteenCent</item>
+        <item>@string/nineteenCent</item>
+        <item>@string/twentyCent</item>
+    </string-array>
+
+    <!-- 1800s pres -->
+    <string name="tJefferson">Thomas Jefferson</string>
+    <string name="jMadison">James Madison</string>
+    <string name="jMonroe">James Monroe</string>
+    <string name="jQAdams">John Q. Adams</string>
+    <string name="aJackson">Andrew Jackson</string>
+
+    <string-array name="eighteenPres">
+        <item>@string/tJefferson</item>
+        <item>@string/jMadison</item>
+        <item>@string/jMonroe</item>
+        <item>@string/jQAdams</item>
+        <item>@string/aJackson</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 1700s Presidents -->
+    <string name="gWashington">George Washington</string>
+    <string name="jAdams">John Adams</string>
+
+    <string-array name="seventeenPres">
+        <item>@string/gWashington</item>
+        <item>@string/jAdams</item>
+    </string-array>
+    
+    <!-- 1900s Presidents -->
+    <string name="tRoosevelt">Theodore Roosevelt</string>
+    <string name="wTaft">William H. Taft</string>
+    <string name="wWilson">Woodrow Wilson</string>
+    <string name="cCoolidge">Calvin Coolidge</string>
+    <string name="hHoover">Herbert Hoover</string>
+    
+    <string-array name="nineteenPres">
+        <item>@string/tRoosevelt</item>
+        <item>@string/wTaft</item>
+        <item>@string/wWilson</item>
+        <item>@string/cCoolidge</item>
+        <item>@string/hHoover</item>
+    </string-array>
+
+    <!-- twentieth Presidents -->
+    <string name="gBush">George W. Bush</string>
+    <string name="bObama">Barack Obama</string>
+    <string name="dTrump">Donald Trump</string>
+
+    <string-array name="twentyPres">
+        <item>@string/gBush</item>
+        <item>@string/bObama</item>
+        <item>@string/dTrump</item>
+    </string-array>
+
+</resources>
