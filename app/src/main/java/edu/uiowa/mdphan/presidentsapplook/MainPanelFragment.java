@@ -5,6 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import static edu.uiowa.mdphan.presidentsapplook.MainActivity.currentCentury;
+import static edu.uiowa.mdphan.presidentsapplook.MainActivity.currentPresident;
+import static edu.uiowa.mdphan.presidentsapplook.MainActivity.myList;
 
 
 public class MainPanelFragment extends Fragment {
@@ -25,7 +30,17 @@ public class MainPanelFragment extends Fragment {
     }
 
     public static void updatePresidentDisplay() {
+        // 0 = 1700 presidents
+        if (currentCentury == 0) {
+            switch (currentPresident) {
+                case 0:
+                    String itemValue = (String) myList.getItemAtPosition(currentPresident);
 
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
 }

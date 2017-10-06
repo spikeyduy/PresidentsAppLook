@@ -13,16 +13,19 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static java.security.AccessController.getContext;
+
 public class MainActivity extends AppCompatActivity {
 
     Toolbar myToolbar;
     Spinner mySpinner;
-    ListView myList;
+    public static ListView myList;
     public static int currentCentury;
     SidePanelFragment sideFragment;
     MainPanelFragment mainFragment;
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public static String[] eightPres;
     public static String[] ninePres;
     public static String[] twenPres;
+    public static int currentPresident;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // create a listener for the presidentListView
+        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                currentPresident = myList.getSelectedItemPosition();
+                MainPanelFragment.updatePresidentDisplay();
+            }
+        });
 
     }
 
