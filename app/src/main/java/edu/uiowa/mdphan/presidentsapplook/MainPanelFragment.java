@@ -30,11 +30,10 @@ public class MainPanelFragment extends Fragment {
     }
 
     public static void updatePresidentDisplay() {
-        // 0 = 1700 presidents
-        if (currentCentury == 0) {
+        if (currentCentury == 0) { // 0 = 1700 presidents
             switch (currentPresident) {
                 case 0:
-                    String itemValue = (String) myList.getItemAtPosition(currentPresident);
+
 
                     break;
                 default:

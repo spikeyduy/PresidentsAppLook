@@ -19,7 +19,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,15 +35,20 @@ public class MainActivity extends AppCompatActivity {
     public static String[] ninePres;
     public static String[] twenPres;
     public static int currentPresident;
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        fragmentManager = getSupportFragmentManager();
+
         // instantiate both fragments
         sideFragment = new SidePanelFragment();
         mainFragment = new MainPanelFragment();
+
+        showSideFrag();
 
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar); // sets as action bar
@@ -96,19 +100,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // hide/show fragments
-    public static void hideSideFrag() {
+    public void hideSideFrag() {
         // how to load this fragment in the view?
-//        FragmentTransaction transaction = fragmentManager.beginTransaction();
-//        transaction.hide(sideFragment);
-//        transaction.commit();
-        View sidePane = SidePanelFragment.sideView;
-        if (sidePane.getVisibility() == View.VISIBLE) {
-            sidePane.setVisibility(View.GONE);
-        }
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.hide(sideFragment);
+        transaction.commit();
+//        View sidePane = SidePanelFragment.sideView;
+//        if (sidePane.getVisibility() == View.VISIBLE) {
+//            sidePane.setVisibility(View.GONE);
+//        }
     }
 
-    public static void showSideFrag() {
-
+    public void showSideFrag() {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.show(sideFragment);
+        transaction.commit();
     }
 
 }
