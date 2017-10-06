@@ -1,4 +1,4 @@
-<LinearLayout android:layout_height="match_parent"
+<RelativeLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -25,7 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
-        tools:layout="@layout/fragment_main_panel">
+        tools:layout="@layout/fragment_main_panel"
+        >
     </fragment>
 
-</LinearLayout>
+</RelativeLayout>

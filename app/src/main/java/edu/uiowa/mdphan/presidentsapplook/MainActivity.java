@@ -1,5 +1,6 @@
 package edu.uiowa.mdphan.presidentsapplook;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 
 import java.util.ArrayList;
 
@@ -26,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // instantiate both fragments
+        SidePanelFragment sideFragment = new SidePanelFragment();
+        MainPanelFragment mainFragment = new MainPanelFragment();
 
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         mySpinner = (Spinner) findViewById(R.id.spinner);
@@ -104,8 +112,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static void hideSidePanel() {
-        
+    // hide/show fragments
+    public void hideSideFrag() {
+
     }
 
 }
