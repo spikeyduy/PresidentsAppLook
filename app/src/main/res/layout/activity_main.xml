@@ -8,7 +8,11 @@
 
     <include layout="@layout/toolbar"/>
 
-    <include layout="@layout/content_main"/>
+    <!--<include layout="@layout/content_main"/>-->
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container"/>
 
 </RelativeLayout>

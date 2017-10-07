@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar myToolbar;
     Spinner mySpinner;
-    public static ListView myList;
+    public ListView myList;
     public static int currentCentury;
     SidePanelFragment sideFragment;
     MainPanelFragment mainFragment;
@@ -44,11 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
-        // instantiate both fragments
-        sideFragment = new SidePanelFragment();
-        mainFragment = new MainPanelFragment();
+        SidePanelFragment sideFragment = new SidePanelFragment();
 
-        showSideFrag();
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, sideFragment).commit();
 
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar); // sets as action bar
@@ -60,18 +58,16 @@ public class MainActivity extends AppCompatActivity {
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
 
-        // this arraylist will be the place holder so that the arrayadapter can be modified
+//         this arraylist will be the place holder so that the arrayadapter can be modified
         myArrayList = new ArrayList<>();
         sidePanelAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, myArrayList);
-        myList.setAdapter(sidePanelAdapter);
+//        myList.setAdapter(sidePanelAdapter);
 
         // now to modify myArrayList
         sevenPres = getResources().getStringArray(R.array.seventeenPres);
         eightPres = getResources().getStringArray(R.array.eighteenPres);
         ninePres = getResources().getStringArray(R.array.nineteenPres);
         twenPres = getResources().getStringArray(R.array.twentyPres);
-
-//        hideSideFrag();
 
 //         When the spinner has an item selected
         mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -88,14 +84,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // create a listener for the presidentListView
-        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                currentPresident = myList.getSelectedItemPosition();
-                MainPanelFragment.updatePresidentDisplay();
-            }
-        });
+//        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                currentPresident = myList.getSelectedItemPosition();
+//                MainPanelFragment.updatePresidentDisplay();
+//            }
+//        });
 
     }
 
@@ -106,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.hide(sideFragment);
         transaction.commit();
 //        View sidePane = SidePanelFragment.sideView;
-//        if (sidePane.getVisibility() == View.VISIBLE) {
+//        if (sidePane.getVisibiliqty() == View.VISIBLE) {
 //            sidePane.setVisibility(View.GONE);
 //        }
     }

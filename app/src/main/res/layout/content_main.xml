@@ -5,15 +5,21 @@
     tools:showIn="@layout/activity_main"
     android:orientation="horizontal">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/sidePanelFragment"
-        android:name="edu.uiowa.mdphan.presidentsapplook.SidePanelFragment"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/side_panel_fragment">
-    </fragment>
+        android:id="@+id/fragment_container"/>
+
+
+    <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+        <!--xmlns:tools="http://schemas.android.com/tools"-->
+        <!--android:id="@+id/sidePanelFragment"-->
+        <!--android:name="edu.uiowa.mdphan.presidentsapplook.SidePanelFragment"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--tools:layout="@layout/side_panel_fragment">-->
+    <!--</fragment>-->
 
     <!-- This is where you would put both fragments and then only show the certain one when it is in portrait mode -->
 
