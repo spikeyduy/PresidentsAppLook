@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar); // sets as action bar
         mySpinner = (Spinner) findViewById(R.id.spinner);
-        myList = (ListView) findViewById(R.id.listOfPres);
+        myList = (ListView) findViewById(R.id.list);
 
         // populate the spinner with the centuries array
         ArrayAdapter<String> myAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.centuries));
