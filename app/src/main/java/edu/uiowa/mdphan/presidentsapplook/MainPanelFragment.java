@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import static edu.uiowa.mdphan.presidentsapplook.MainActivity.currentCentury;
 import static edu.uiowa.mdphan.presidentsapplook.MainActivity.currentPresident;
-//import static edu.uiowa.mdphan.presidentsapplook.MainActivity.myList;
+import static edu.uiowa.mdphan.presidentsapplook.MainActivity.myList;
 
 
 public class MainPanelFragment extends Fragment {
