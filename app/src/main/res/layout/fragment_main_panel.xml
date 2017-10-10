@@ -1,23 +1,12 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="edu.uiowa.mdphan.presidentsapplook.MainPanelFragment"
-    tools:showIn="@layout/activity_main">
+    tools:context="edu.uiowa.mdphan.presidentsapplook.MainActivity">
 
-    // show main information about President
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="255dp"
-        android:text="Pres"
-        android:textSize="40dp"
-        android:textAllCaps="true"
-        android:layout_marginLeft="130dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/presText"/>
 
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>

@@ -8,12 +8,12 @@
 
     <include layout="@layout/toolbar"/>
 
-    <include layout="@layout/content_main"/>
-
-
-    <ListView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/list"></ListView>
+        android:id="@+id/holdFrag"
+        android:layout_below="@+id/toolbar">
+
+    </FrameLayout>
 
 </RelativeLayout>

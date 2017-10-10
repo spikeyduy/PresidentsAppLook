@@ -1,22 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.uiowa.mdphan.presidentsapplook.SidePanelFragment"
-    tools:showIn="@layout/activity_main">
+    tools:context="edu.uiowa.mdphan.presidentsapplook.MainActivity">
 
     <ListView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="55dp"
-        android:id="@+id/list" />
-        <!--android:entries="@array/eighteenPres"-->
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/presListView"
+        android:choiceMode="singleChoice"/>
 
-
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>

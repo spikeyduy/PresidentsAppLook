@@ -1,84 +1,70 @@
 package edu.uiowa.mdphan.presidentsapplook;
 
-//import android.app.FragmentManager;
-//import android.app.FragmentTransaction;
-import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.widget.Toast;
 
-
 import java.util.ArrayList;
-import java.util.Arrays;
-
 
 public class MainActivity extends AppCompatActivity {
 
     Toolbar myToolbar;
     Spinner mySpinner;
-    public static ListView myList;
-    public static int currentCentury;
-    SidePanelFragment sideFragment;
-    MainPanelFragment mainFragment;
-    public static ArrayList<String> myArrayList;
-    public static ArrayAdapter<String> sidePanelAdapter;
-    public static String[] sevenPres;
-    public static String[] eightPres;
-    public static String[] ninePres;
-    public static String[] twenPres;
-    public static int currentPresident;
-    FragmentManager fragmentManager;
+    public ListView myListView; // listview in sidefragment
+    public static int currentCentury; // keeps track of which century is selected
+    public ArrayAdapter<String> centuryAdapter; // list of centuries for spinner
+    SidePanelFragment sideFrag;
+    public static ArrayAdapter<String> presAdapter; // adapter to convert president list
+    public static ArrayList<String> presList; // list of presidents user can choose from
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fragmentManager = getSupportFragmentManager();
+        // check activity to make sure it has framelayout
+        if (findViewById(R.id.holdFrag) != null) {
+            // if we are being restored from a previous state
+            // do nothing
+            if (savedInstanceState != null) {
+                return;
+            }
 
-        // instantiate both fragments
-        sideFragment = new SidePanelFragment();
-        mainFragment = new MainPanelFragment();
+            // create fragment to be placed in layout
+            sideFrag = new SidePanelFragment();
 
-        showSideFrag();
+            // start activity with any passed intents
+            sideFrag.setArguments(getIntent().getExtras());
 
+            // add fragment to framelayout
+            getSupportFragmentManager().beginTransaction().add(R.id.holdFrag, sideFrag).commit();
+        }
+
+        // set up the toolbar and spinner
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(myToolbar); // sets as action bar
+        setSupportActionBar(myToolbar); // set as action bar (top bar where all the action/settings go)
         mySpinner = (Spinner) findViewById(R.id.spinner);
-        myList = (ListView) findViewById(R.id.list);
 
-        // populate the spinner with the centuries array
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.centuries));
-        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner.setAdapter(myAdapter);
+        // populate the spinner with the centuries
+        centuryAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.centuries));
+        mySpinner.setAdapter(centuryAdapter);
 
-        // this arraylist will be the place holder so that the arrayadapter can be modified
-        myArrayList = new ArrayList<>();
-        sidePanelAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, myArrayList);
-        myList.setAdapter(sidePanelAdapter);
-
-        // now to modify myArrayList
-        sevenPres = getResources().getStringArray(R.array.seventeenPres);
-        eightPres = getResources().getStringArray(R.array.eighteenPres);
-        ninePres = getResources().getStringArray(R.array.nineteenPres);
-        twenPres = getResources().getStringArray(R.array.twentyPres);
-
-//        hideSideFrag();
-
-//         When the spinner has an item selected
-        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        // when user selects option in list, switch between the presList
+        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                currentCentury = mySpinner.getSelectedItemPosition();
-                SidePanelFragment.updatePresidentListDisplay();
+                currentCentury = mySpinner.getSelectedItemPosition(); // keep track of the selected year
+                sideFrag.updateSpinner();
+//                Toast.makeText(MainActivity.this, Integer.toString(currentCentury), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -87,34 +73,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // create a listener for the presidentListView
-        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                currentPresident = myList.getSelectedItemPosition();
-                MainPanelFragment.updatePresidentDisplay();
-            }
-        });
 
     }
-
-    // hide/show fragments
-    public void hideSideFrag() {
-        // how to load this fragment in the view?
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.hide(sideFragment);
-        transaction.commit();
-//        View sidePane = SidePanelFragment.sideView;
-//        if (sidePane.getVisibility() == View.VISIBLE) {
-//            sidePane.setVisibility(View.GONE);
-//        }
-    }
-
-    public void showSideFrag() {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.show(sideFragment);
-        transaction.commit();
-    }
-
 }

@@ -66,4 +66,11 @@
         <item>@string/dTrump</item>
     </string-array>
 
+    <!--Trump-->
+    <string-array name="dTrump">
+        <item>Donald Trump</item>
+        <item>Born 1946</item>
+        <item>71 years old</item>
+    </string-array>
+
 </resources>
